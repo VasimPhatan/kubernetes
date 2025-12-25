@@ -14,7 +14,8 @@ spec:
     - name: image-pull
       image: nginx
       imagePullPolicy: Always
-      conatinerPort: 80
+      ports:
+        containerPort: 80
       resources:
         requests:
           cpu: "125m"
