@@ -8,7 +8,7 @@ spec:
     - name: nginx-sample
       image: nginx
       ports:
-        - conatinerPort: 80
+        - containerPort: 80
 
     
 
