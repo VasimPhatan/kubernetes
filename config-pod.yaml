@@ -5,13 +5,13 @@ metadata:
 
 spec:
   containers:
-    - name: nginx-container
+    - name: nginx
       image: nginx
       env:
         - name: COURSE
-          valueFrom: 
+          valueFrom:
             configMapKeyRef:
-              name: course-config
+              name: config-course
               key: COURSE
 
         - name: TRAINER
