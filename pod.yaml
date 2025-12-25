@@ -4,7 +4,7 @@ metadata:
   name: simple-pod
   namespace: roboshop
 spec:
-  conatiners:
+  containers:
     - name: nginx-sample
       image: nginx
       ports:
