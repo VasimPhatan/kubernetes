@@ -12,10 +12,10 @@ spec:
           valueFrom: 
             configMapKeyRef:
               name: course-config
-              key: VALUE1
+              key: COURSE
 
         - name: TRAINER
           valueFrom:
             configMapKeyRef:
               name: course-config
-              key: VALUE2
+              key: TRAINER
