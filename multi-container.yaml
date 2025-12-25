@@ -12,6 +12,5 @@ spec:
 
     - name: side-car
       image: almalinux
-      command: ["sleep, 200"]
+      command: ["sleep", "200"]
 
-      
