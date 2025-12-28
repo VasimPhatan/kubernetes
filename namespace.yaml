@@ -1,8 +1,8 @@
 apivesrion: v1
 kind: namespace
 metadate:
-    roboshop:
-      type: driver
+    name: roboshop
+
 
 
 
