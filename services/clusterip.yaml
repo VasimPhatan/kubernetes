@@ -12,7 +12,7 @@ spec:
     - name: nginx
       image: nginx
       ports:
-        - continerPort: 80
+        - containerPort: 80
           name: httpd-svc
 ---
 apiVersion: v1
