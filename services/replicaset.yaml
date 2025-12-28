@@ -1,51 +1,26 @@
-apiVersion: app/v1
-kind: ReplicaSet
-name: roboshop
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: replica-pod
-  labels:
-    app: web
-    tier: tier-1
+  name: frontend #name of the Deployment resoutrce
+  labels: # these labels Deployment  labels, every k8 resource can have labels.
+    app: nginx
 spec:
-  replicas: 4
+  # modify replicas according to your case
+  replicas: 3 #these define how many replica of containers hould it create and manage
   selector:
-    matchLabels:
-     app: web
-     tier: tier-1
-     project: roboshop
-
-template:
-  metadata:
-    labels:
-      app: web
-      tier: tier-1
+    matchLabels: # these labels should match with pod labels
+      tier: frontend
+      app: nginx
+      environment: dev
       project: roboshop
-  spec:
-    - name: nginx
-      image: nginx
-      ports:
-        - conatinerPort: 80
-          name: httpd-svc
-
----
-apiVersion: v1
-kind: Service
-metadata:
-   name: created-nodeport
-   namespace: roboshop
-
-spec:
- selector:
-    app: web
-    tier: tier-1
-
-  ports:
-    - Protocol: TCP
-      port: 80
-      targetPort: httpd-svc
-
-
-  
-
-
-
+  template: # this one is nothing but pod definition.
+    metadata:
+      labels: #these are the pod labels.
+        tier: frontend
+        app: nginx
+        environment: dev
+        project: roboshop
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
