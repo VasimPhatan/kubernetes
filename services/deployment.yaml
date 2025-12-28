@@ -20,9 +20,9 @@ spec:
         app: web
         project: roboshop
   
-  spec:
-    containers:
-      - name: frontend-web
-        image: nginx
-        ports:
-          - containerPort: 80
+    spec:
+      containers:
+        - name: frontend-web
+          image: nginx
+          ports:
+            - containerPort: 80
