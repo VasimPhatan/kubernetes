@@ -3,9 +3,9 @@ kind: Pod
 metadata:
   name: nginx-pod
   namespace: roboshop
-labels:
-  app: frontend
-  env: dev
+  labels:
+    app: frontend
+    env: dev
   
 spec:
   containers:
