@@ -1,0 +1,51 @@
+apiVersion: app/v1
+kind: ReplicaSet
+name: roboshop
+metadata:
+  name: replica-pod
+  labels:
+    app: web
+    tier: tier-1
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+     app: web
+     tier: tier-1
+     project: roboshop
+
+template:
+  metadata:
+    labels:
+      app: web
+      tier: tier-1
+      project: roboshop
+  spec:
+    - name: nginx
+      image: nginx
+      ports:
+        - conatinerPort: 80
+          name: httpd-svc
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+   name: created-nodeport
+   namespace: roboshop
+
+spec:
+ selector:
+    app: web
+    tier: tier-1
+
+  ports:
+    - Protocol: TCP
+      port: 80
+      targetPort: httpd-svc
+
+
+  
+
+
+
