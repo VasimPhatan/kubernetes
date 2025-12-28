@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: demo-deployment
+  labels: # these albels are deployment resource one
+    app: web
+    project: roboshop
+  
+spec:
+replicas: 10
+selector:
+  matchLabels:
+    app: web
+    project: roboshop
+
+
+template:
+metadata:
+  labels:
+    app: web
+    project: roboshop
+  
+  spec:
+    containers:
+      - name: frontend-web
+        image: nginx
+        ports:
+          - containerPort: 80
+
+      
+        
+
+
+
+
+
