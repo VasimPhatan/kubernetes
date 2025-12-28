@@ -1,0 +1,7 @@
+k8-roboshop (folder)
+  mongodb (folder)
+    catalogue.js
+    user.js
+    Dockerfile
+    manifest.yaml
+    

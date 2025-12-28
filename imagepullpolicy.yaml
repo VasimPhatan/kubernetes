@@ -13,7 +13,7 @@ spec:
   containers:
     - name: image-pull
       image: nginx
-      imagePullPolicy: Always
+      imagePullPolicy: Always  #now everthing we run kubernetes will get the latest image from docker registery
       ports:
         - containerPort: 80
       resources:

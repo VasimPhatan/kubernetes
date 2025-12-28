@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: course-config
+data:
+  COURSE: devops
+  TRAINER: vasim
+
+---
+
+
+
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: secret-conig
+data:
+  USERNAME: dmFzaW0K
+  PASSWORD: MTIzCg==
+
+----
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-pod
+  labels:
+    NAME: vasim
+    CITY: nellore
+  annotations:
+    com.project.author: vasim
+    com.project.course: devops
+
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      env:
+        - name: YOUR_NAME
+          value: " my name is vasim"
+      envFrom:
+        - configMapKeyRef:
+              name: course-config
+
+      envFrom:
+        - secretRef:
+          name: secret-
+     
+      env:
+        - name: COURSE
+        valuesFrom:
+          configMapKeyRef:
+            - name: course-config
+              key: COURSE
+
+      
+
+   
