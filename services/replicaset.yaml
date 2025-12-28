@@ -1,26 +1,31 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: frontend #name of the Deployment resoutrce
-  labels: # these labels Deployment  labels, every k8 resource can have labels.
-    app: nginx
+apiVersion: v1
+kind: ReplicaSet
+metadata: 
+  name: demo-replicaset
+  labels:  #every resource will have labels
+    app: frontend
+    project: roboshop
+
 spec:
-  # modify replicas according to your case
-  replicas: 3 #these define how many replica of containers hould it create and manage
+  replicas: 5
   selector:
-    matchLabels: # these labels should match with pod labels
-      tier: frontend
-      app: nginx
-      environment: dev
+    matchLabels:
+      app: frontend
       project: roboshop
-  template: # this one is nothing but pod definition.
+
+
+  template:  #this one belongs to comtainer
     metadata:
-      labels: #these are the pod labels.
-        tier: frontend
-        app: nginx
-        environment: dev
+      labels:
+        app: frontend
         project: roboshop
     spec:
       containers:
-      - name: nginx
-        image: nginx
+       - name: nginx-pod
+         image: nginx
+         ports:
+          - containerPort: 80
+
+
+
+
