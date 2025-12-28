@@ -1,5 +1,5 @@
-apivesrion: v1
-kind: namespace
+apiVersion: v1
+kind: Namespace
 metadate:
     name: roboshop
 
