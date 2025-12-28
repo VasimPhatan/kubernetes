@@ -15,10 +15,10 @@ selector:
 
 
 template:
- metadata:
-  labels:
-    app: web
-    project: roboshop
+  metadata:
+    labels:
+      app: web
+      project: roboshop
   
   spec:
     containers:
