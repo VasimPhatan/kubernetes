@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: web-pod
+  namespace: roboshop
+  labels:
+    app: web
+    project: roboshop
+    env: web
+
+spec:
+  containers: 
+    - name: nginx-container
+      image: nginx
+      ports:
+        - containerPort: 80
+          name: httpd-svc
+      
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: created-cluster-ip
+  namespace: roboshop
+
+spec:
+  selector:
+    app: web
+    project: roboshop
+    env: web
+  ports:
+    - protocol:  TCP
+      port: 80
+      targetPort: httpd-svc
+  type: NodePort
+
