@@ -1,30 +1,35 @@
-apiVersion: apps/v1
-kind: ReplicaSet
-metadata: 
-  name: demo-replicaset
-  labels:  #every resource will have labels
-    app: frontend
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: demo-deployment
+  labels: # these albels are deployment resource one
+    app: web
+    project: roboshop
+  
+spec:
+replicas: 10
+selector:
+  matchLabels:
+    app: web
     project: roboshop
 
-spec:
-  replicas: 5
-  selector:
-    matchLabels:
-      app: frontend
-      project: roboshop
 
-
-  template:  #this one belongs to comtainer
-    metadata:
-      labels:
-        app: frontend
-        project: roboshop
-    spec:
-      containers:
-       - name: nginx-pod
-         image: nginx
-         ports:
+template:
+metadata:
+  labels:
+    app: web
+    project: roboshop
+  
+  spec:
+    containers:
+      - name: frontend-web
+        image: nginx
+        ports:
           - containerPort: 80
+
+      
+        
+
 
 
 
