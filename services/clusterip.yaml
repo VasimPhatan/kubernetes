@@ -20,13 +20,14 @@ kind: Service
 metadata:
   name: course-cluster-ip
   namespace: roboshop
+
 spec:
   selector:
     app: frontend
     env: dev
   ports:
-    ptotocol: TCP
-    port: 80
-    targetPort: httpd-svc
+    - ptotocol: TCP
+      port: 80
+      targetPort: httpd-svc
   type: ClusterIP
 
