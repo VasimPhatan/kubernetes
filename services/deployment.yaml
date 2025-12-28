@@ -14,11 +14,11 @@ spec:
       project: roboshop
 
 
-template:
-  metadata:
-   labels:
-    app: web
-    project: roboshop
+  template:
+    metadata:
+      labels:
+        app: web
+        project: roboshop
   
   spec:
     containers:
