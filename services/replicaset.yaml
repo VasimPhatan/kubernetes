@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: demo-deployment
@@ -15,8 +15,8 @@ selector:
 
 
 template:
-metadata:
-  labels:
+  metadata:
+   labels:
     app: web
     project: roboshop
   
